@@ -6,7 +6,6 @@
     <title>Raphael Arnold – Portfolio</title>
 
     <style>
-        /* Base */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: system-ui, sans-serif;
@@ -15,6 +14,25 @@
             line-height: 1.6;
         }
         a { color: inherit; text-decoration: none; }
+
+        /* Glow animation */
+        @keyframes glowPulse {
+            0% { box-shadow: 0 0 8px rgba(168,85,247,0.4); }
+            50% { box-shadow: 0 0 18px rgba(168,85,247,0.9); }
+            100% { box-shadow: 0 0 8px rgba(168,85,247,0.4); }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Lightbox zoom animation */
+        @keyframes lightboxZoom {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
 
         /* Header */
         header {
@@ -29,9 +47,33 @@
             backdrop-filter: blur(10px);
             z-index: 10;
         }
-        .logo { font-weight: 700; letter-spacing: 0.15em; }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 6px 12px;
+            border-radius: 8px;
+            animation: glowPulse 2.5s infinite ease-in-out;
+        }
+
         nav a { margin: 0 12px; opacity: 0.7; }
         nav a:hover, nav a.active { opacity: 1; }
+
+        /* Social icons */
+        .socials {
+            display: flex;
+            gap: 14px;
+        }
+        .socials img {
+            width: 22px;
+            height: 22px;
+            opacity: 0.75;
+            transition: 0.25s ease;
+        }
+        .socials img:hover {
+            opacity: 1;
+            transform: scale(1.15);
+        }
 
         /* Hero */
         .hero {
@@ -57,12 +99,13 @@
             overflow: hidden;
             border-radius: 12px;
         }
-        .item { overflow: hidden; }
         .item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: 0.3s ease;
+            cursor: pointer;
+            animation: fadeIn 0.6s ease forwards;
         }
         .item:hover img {
             transform: scale(1.06);
@@ -70,40 +113,23 @@
             filter: saturate(1.1);
         }
 
-        /* CV Section */
-        .cv-section {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
         }
-        .cv-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(168,85,247,0.8);
         }
-
-        /* PDF Button */
-        .pdf-button {
-            display: inline-block;
-            margin-bottom: 25px;
-            padding: 12px 22px;
-            background: linear-gradient(90deg, #a855f7, #22d3ee);
-            color: #05040a;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: 0.25s ease;
-        }
-        .pdf-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 18px rgba(168,85,247,0.7);
-        }
-
-        .cv-block { margin-bottom: 28px; }
-        .cv-block h3 { font-size: 1.2rem; margin-bottom: 8px; }
-        .cv-block p, .cv-block li {
-            color: rgba(245,245,245,0.85);
-            margin-bottom: 6px;
-        }
-        .cv-block ul { padding-left: 0; }
 
         /* Footer */
         footer {
@@ -112,20 +138,17 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             margin-top: 40px;
         }
-
         footer .behance {
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 12px;
             color: #a855f7;
         }
-
         footer p {
             color: rgba(200,200,200,0.7);
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .grid { grid-template-columns: repeat(3, 1fr); }
         }
@@ -139,10 +162,20 @@
 
 <header>
     <div class="logo">RAPHAEL ARNOLD</div>
+
     <nav>
-        <a href="#" class="active">Home</a>
-        <a href="#cv">Resume</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="cv.html">Resume</a>
     </nav>
+
+    <div class="socials">
+        <a href="https://x.com/TheApothicary" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg">
+        </a>
+        <a href="https://www.behance.net/raphaelarnold_" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Behance_logo.svg">
+        </a>
+    </div>
 </header>
 
 <section class="hero">
@@ -154,78 +187,57 @@
     <h2>Portfolio</h2>
 
     <div class="grid">
-
         <div class="item"><img src="images/projet1.jpg"></div>
         <div class="item"><img src="images/projet2.png"></div>
         <div class="item"><img src="images/projet3.png"></div>
         <div class="item"><img src="images/projet4.jpg"></div>
         <div class="item"><img src="images/projet5.jpg"></div>
-
         <div class="item"><img src="images/projet6.jpg"></div>
         <div class="item"><img src="images/projet7.jpg"></div>
         <div class="item"><img src="images/projet8.jpg"></div>
         <div class="item"><img src="images/projet9.png"></div>
         <div class="item"><img src="images/projet10.png"></div>
-
         <div class="item"><img src="images/projet11.png"></div>
         <div class="item"><img src="images/projet12.png"></div>
         <div class="item"><img src="images/projet13.png"></div>
         <div class="item"><img src="images/projet14.png"></div>
         <div class="item"><img src="images/projet15.png"></div>
-
     </div>
 </section>
 
-<section class="cv-section" id="cv">
-    <h2>Resume</h2>
-
-    <!-- PDF BUTTON -->
-    <a class="pdf-button" href="resume.pdf" download>Download PDF Resume</a>
-
-    <div class="cv-block">
-        <h3>Profile</h3>
-        <p>Graphic designer and illustrator creating modern visuals for digital and print, with a strong focus on art direction and visual consistency.</p>
-    </div>
-
-    <div class="cv-block">
-        <h3>Skills</h3>
-        <ul>
-            <li><strong>Graphic design:</strong> visual identity, posters, banners, overlays, social media visuals</li>
-            <li><strong>Tools:</strong> Photoshop, Illustrator, InDesign, After Effects</li>
-            <li><strong>Web:</strong> basic HTML/CSS integration, responsive layout</li>
-            <li><strong>Languages:</strong> French (native), English (intermediate)</li>
-        </ul>
-    </div>
-
-    <div class="cv-block">
-        <h3>Experience</h3>
-        <ul>
-            <li><strong>Freelance – Graphic Designer / Illustrator</strong>: Visuals for esports, events, and social media.</li>
-            <li><strong>Team collaborations</strong>: Banners, overlays, and art direction on multiple projects.</li>
-        </ul>
-    </div>
-
-    <div class="cv-block">
-        <h3>Education</h3>
-        <ul>
-            <li><strong>BUT Métiers du Multimédia et de l’Internet</strong> – in progress</li>
-            <li><strong>STI2D High School Diploma</strong></li>
-        </ul>
-    </div>
-
-    <div class="cv-block">
-        <h3>Contact</h3>
-        <p>For opportunities or collaborations:  
-        <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    </div>
-</section>
+<!-- LIGHTBOX -->
+<div id="lightbox">
+    <img src="">
+</div>
 
 <footer>
     <div class="behance">
-        <a href="https://www.behance.net/" target="_blank">See more on my Behance</a>
+        <a href="https://www.behance.net/raphaelarnold_" target="_blank">See more on my Behance</a>
     </div>
     <p>© 2026 – Raphael Arnold</p>
 </footer>
+
+<script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+
+    document.querySelectorAll(".item img").forEach(img => {
+        img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+
+            // Reset animation
+            lightboxImg.style.animation = "none";
+            void lightboxImg.offsetWidth;
+            lightboxImg.style.animation = "lightboxZoom 0.35s ease forwards";
+
+            lightbox.style.display = "flex";
+        });
+    });
+
+    lightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+    });
+</script>
 
 </body>
 </html>
