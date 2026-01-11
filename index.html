@@ -104,23 +104,6 @@
       line-height: 1.7;
     }
 
-    /* BOUTON CV */
-    .cv-button {
-      display: inline-block;
-      margin: 1.5rem 0;
-      padding: 12px 22px;
-      background: linear-gradient(90deg, #a855f7, #22d3ee);
-      color: #05040a;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.25s ease;
-    }
-    .cv-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 22px var(--glow);
-    }
-
     /* ICONES */
     .flat-icons {
       display: flex;
@@ -144,14 +127,24 @@
       color: #000;
     }
 
-    /* GRID — IMAGES NON COUPÉES + NON PIXELISÉES */
+    /* GRILLE COLLÉE */
     .grid {
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
       width: 100%;
-      margin: 0;
-      padding: 0;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .item {
@@ -172,19 +165,18 @@
     .thumb-wrapper img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* AUCUNE COUPE */
+      object-fit: contain; /* NON COUPÉ */
       image-rendering: auto; /* ANTI-PIXELISATION */
-      border-radius: 14px;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    /* SURVOL : glow */
+    /* SURVOL */
     .thumb-wrapper:hover img {
       transform: scale(1.03);
       box-shadow: 0 0 25px var(--glow);
     }
 
-    /* CLIC : glow permanent */
+    /* CLIC */
     .selected-image {
       transform: scale(1.03);
       box-shadow: 0 0 35px var(--glow) !important;
@@ -210,7 +202,7 @@
       border-radius: 10px;
     }
 
-    /* FOOTER BEHANCE */
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem;
@@ -229,15 +221,6 @@
       color: #22d3ee;
       text-shadow: 0 0 25px var(--glow);
     }
-
-    @media (max-width: 600px) {
-      .thumb-wrapper {
-        height: 350px;
-      }
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 
@@ -247,23 +230,21 @@
     Mode clair / sombre
   </button>
 
-  <header class="scroll-reveal">
+  <header>
     <div class="logo-name">
       <img src="images/logo.png" alt="Logo" />
     </div>
   </header>
 
-  <h1 class="name-title scroll-reveal">Raphaël ARNOLD</h1>
+  <h1 class="name-title">Raphaël ARNOLD</h1>
 
-  <section class="about scroll-reveal">
+  <section class="about">
     <h2>À propos</h2>
     <p>
       Je suis Raphaël Arnold, graphiste passionné par la création visuelle, 
       l’illustration et le design numérique. J’aime donner vie à des univers 
       colorés, dynamiques et uniques à travers mes projets.
     </p>
-
-    <a href="cv.html" class="cv-button">Voir mon CV</a>
 
     <div class="about-links flat-icons">
 
@@ -282,7 +263,7 @@
     </div>
   </section>
 
-  <div class="grid scroll-reveal">
+  <div class="grid">
 
     <!-- IMAGES -->
     <div class="item"><div class="thumb-wrapper"><img src="images/projet1.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
@@ -305,7 +286,7 @@
 
   <footer>
     <a href="https://www.behance.net/raphaelarnold_" target="_blank" class="behance-footer">
-      Voir plus sur Behance
+      See more on my Behance
     </a>
   </footer>
 
@@ -315,7 +296,7 @@
   </div>
 
   <script>
-    /* Effet lumineux permanent au clic */
+    /* Glow permanent */
     function selectImage(img) {
       document.querySelectorAll('.thumb-wrapper img').forEach(i =>
         i.classList.remove('selected-image')
