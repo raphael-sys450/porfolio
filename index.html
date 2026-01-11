@@ -62,7 +62,6 @@
       box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6);
     }
 
-    /* LOGO GÉANT À CHEVAL */
     .logo-name {
       transform: translateY(90px);
       z-index: 10;
@@ -83,7 +82,6 @@
       100% { box-shadow: 0 0 15px rgba(180, 0, 255, 0.25); }
     }
 
-    /* NOM */
     .name-title {
       text-align: center;
       font-size: 2.8rem;
@@ -92,7 +90,6 @@
       font-weight: 700;
     }
 
-    /* ABOUT */
     .about {
       padding: 3rem 2rem;
       max-width: 900px;
@@ -105,7 +102,23 @@
       line-height: 1.7;
     }
 
-    /* ICONES */
+    /* BOUTON CV */
+    .cv-button {
+      display: inline-block;
+      margin: 1.5rem 0;
+      padding: 12px 22px;
+      background: linear-gradient(90deg, #a855f7, #22d3ee);
+      color: #05040a;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+    .cv-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(168,85,247,0.9);
+    }
+
     .flat-icons {
       display: flex;
       justify-content: center;
@@ -128,7 +141,6 @@
       color: #000;
     }
 
-    /* GRID — IMAGES IDENTIQUES, COLLÉES, NON COUPÉES */
     .grid {
       display: grid;
       gap: 0;
@@ -146,7 +158,7 @@
 
     .thumb-wrapper {
       width: 100%;
-      height: 600px; /* même hauteur pour toutes */
+      height: 600px;
       background: var(--bg);
       display: flex;
       align-items: center;
@@ -157,8 +169,7 @@
     .thumb-wrapper img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* AUCUNE COUPE */
-      image-rendering: auto; /* anti-pixelisation */
+      object-fit: contain;
       transition: transform 0.4s ease;
     }
 
@@ -166,7 +177,6 @@
       transform: scale(1.02);
     }
 
-    /* ANIMATION FADE-IN + ZOOM */
     .image-appear {
       opacity: 0;
       transform: scale(1.05);
@@ -178,7 +188,6 @@
       transform: scale(1);
     }
 
-    /* LIGHTBOX */
     #lightbox {
       position: fixed;
       top: 0;
@@ -216,7 +225,6 @@
       text-decoration: underline;
     }
 
-    /* MOBILE */
     @media (max-width: 600px) {
       .logo-name {
         transform: translateY(70px);
@@ -265,6 +273,9 @@
       colorés, dynamiques et uniques à travers mes projets.
     </p>
 
+    <!-- ⭐ BOUTON CV AJOUTÉ ICI ⭐ -->
+    <a href="cv.html" class="cv-button">Voir mon CV</a>
+
     <div class="about-links flat-icons">
 
       <a href="https://x.com/TheApothicary" target="_blank">
@@ -276,7 +287,7 @@
       <a href="https://www.behance.net/raphaelarnold_" target="_blank">
         <svg viewBox="0 0 24 24" class="flat-icon">
           <path fill="currentColor" d="M4.5 7H9c1.657 0 3 1.343 3 3 0 .795-.31 1.515-.816 2.047A2.99 2.99 0 0 1 12 14c0 1.657-1.343 3-3 3H4.5V7zm3.9 4.2c.663 0 1.2-.537 1.2-1.2s-.537-1.2-1.2-1.2H6.3v2.4h2.1zm.3 4.2c.663 0 1.2-.537 1.2-1.2s-.537-1.2-1.2-1.2H6.3v2.4h2.4zM14.25 12c0-2.485 1.79-4.5 4.5-4.5 2.61 0 4.35 1.845 4.35 4.65v.45h-6.3c.15.9.9 1.65 2.1 1.65.75 0 1.47-.3 2.1-.9l1.35 1.5c-.9.9-2.25 1.5-3.6 1.5-2.76 0-4.5-2.04-4.5-4.35zm6.3-1.2c-.15-.9-.75-1.65-1.8-1.65s-1.65.75-1.8 1.65h3.6zM14.25 7.5h4.5v1.5h-4.5V7.5z"/>
-        </svg>
+      </svg>
       </a>
 
     </div>
@@ -284,7 +295,6 @@
 
   <div class="grid scroll-reveal">
 
-    <!-- IMAGES NON COUPÉES -->
     <div class="item"><div class="thumb-wrapper"><img src="images/projet1.jpg" class="image-appear" onclick="openLightbox(this.src)"></div></div>
     <div class="item"><div class="thumb-wrapper"><img src="images/projet2.png" class="image-appear" onclick="openLightbox(this.src)"></div></div>
     <div class="item"><div class="thumb-wrapper"><img src="images/projet3.png" class="image-appear" onclick="openLightbox(this.src)"></div></div>
@@ -307,7 +317,6 @@
     © 2025 — Portfolio de <a href="https://x.com/TheApothicary" target="_blank">Raphaël Arnold</a> • Tous droits réservés
   </footer>
 
-  <!-- LIGHTBOX -->
   <div id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
   </div>
