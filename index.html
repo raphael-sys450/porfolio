@@ -12,7 +12,7 @@
     :root {
       --bg: #0f0f10;
       --text: #ffffff;
-      --glow: rgba(168, 85, 247, 0.95); /* couleur du glow = couleur du footer */
+      --glow: rgba(168, 85, 247, 0.95);
     }
 
     body {
@@ -76,6 +76,7 @@
       margin-bottom: 1.5rem;
     }
 
+    /* ICONES */
     .flat-icons {
       display: flex;
       justify-content: center;
@@ -83,8 +84,8 @@
     }
 
     .flat-icon {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       fill: currentColor;
       color: var(--text);
       transition: transform 0.25s ease;
@@ -128,16 +129,16 @@
     .cell img {
       width: 100%;
       height: 100%;
-      object-fit: cover;          /* remplit la zone */
-      object-position: center;    /* coupe proprement */
+      object-fit: cover;
+      object-position: center;
       image-rendering: auto;
       transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    /* Glow hover (plus doux) */
+    /* Glow hover (corrigé + adouci) */
     .cell:hover img {
       transform: scale(1.02);
-      filter: drop-shadow(0 0 10px var(--glow));
+      filter: drop-shadow(0 0 6px var(--glow)) !important;
     }
 
     /* Glow permanent après clic */
@@ -187,7 +188,7 @@
       filter: drop-shadow(0 0 14px var(--glow));
     }
 
-    /* FOOTER (même couleur que le glow) */
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 1rem 2rem;
@@ -197,7 +198,7 @@
     .behance-footer {
       font-size: 2.3rem;
       font-weight: 900;
-      color: var(--glow); /* même couleur que le glow */
+      color: var(--glow);
       text-decoration: none;
       letter-spacing: 0.08em;
     }
