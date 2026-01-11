@@ -5,50 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raphaël Arnold – Portfolio</title>
 
+  <!-- Police Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0f0f10;
       --text: #f5f5f5;
-      --btn-bg: #27272a;
-      --btn-border: #3f3f46;
-      --btn-hover: #3f3f46;
       --glow: rgba(168, 85, 247, 0.9);
-    }
-
-    .light {
-      --bg: #f5f5f5;
-      --text: #0f0f10;
-      --btn-bg: #e5e5e5;
-      --btn-border: #cfcfcf;
-      --btn-hover: #dcdcdc;
-      --glow: rgba(34, 211, 238, 0.9);
     }
 
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: var(--btn-bg);
-      border: 1px solid var(--btn-border);
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      color: var(--text);
-      transition: 0.3s;
-      z-index: 1000;
-    }
-
-    .theme-toggle:hover {
-      background: var(--btn-hover);
-      transform: translateY(-2px);
     }
 
     /* HEADER */
@@ -61,12 +32,6 @@
       justify-content: center;
       padding-bottom: 40px;
       position: relative;
-      box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6);
-    }
-
-    .logo-name {
-      transform: translateY(90px);
-      z-index: 10;
     }
 
     .logo-name img {
@@ -75,7 +40,6 @@
       border-radius: 50%;
       object-fit: cover;
       animation: glow 3s ease-in-out infinite;
-      filter: drop-shadow(0px 12px 25px rgba(0,0,0,0.55));
     }
 
     @keyframes glow {
@@ -88,90 +52,42 @@
       text-align: center;
       font-size: 2.8rem;
       margin-top: 120px;
-      margin-bottom: 1rem;
-      font-weight: 700;
+      font-weight: 900;
     }
 
-    .about {
-      padding: 3rem 2rem;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .about p {
-      opacity: 0.85;
-      line-height: 1.7;
-    }
-
-    /* ICONES */
-    .flat-icons {
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-
-    .flat-icon {
-      width: 34px;
-      height: 34px;
-      fill: currentColor;
-      color: var(--text);
-      transition: transform 0.3s ease;
-    }
-
-    .flat-icon:hover {
-      transform: scale(1.2);
-    }
-
-    .light .flat-icon {
-      color: #000;
-    }
-
-    /* GRILLE COLLÉE */
+    /* GRILLE COLLÉE EXACTE */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
       width: 100%;
+      gap: 0;
     }
 
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .item {
-      overflow: hidden;
-      cursor: pointer;
-      background: var(--bg);
-    }
-
-    .thumb-wrapper {
+    /* Ligne 1 : carrés */
+    .square {
       width: 100%;
       height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
 
-    .thumb-wrapper img {
+    /* Lignes 2 et 3 : rectangles verticaux */
+    .vertical {
+      width: 100%;
+      height: 900px;
+      overflow: hidden;
+    }
+
+    .square img,
+    .vertical img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* NON COUPÉ */
-      image-rendering: auto; /* ANTI-PIXELISATION */
+      object-fit: contain;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     /* SURVOL */
-    .thumb-wrapper:hover img {
+    .square:hover img,
+    .vertical:hover img {
       transform: scale(1.03);
       box-shadow: 0 0 25px var(--glow);
     }
@@ -202,7 +118,7 @@
       border-radius: 10px;
     }
 
-    /* FOOTER */
+    /* FOOTER IDENTIQUE AU PDF */
     footer {
       text-align: center;
       padding: 3rem;
@@ -210,25 +126,36 @@
     }
 
     .behance-footer {
-      font-size: 2.4rem;
-      font-weight: 800;
+      font-size: 2.2rem;
+      font-weight: 900;
       color: var(--text);
       text-decoration: none;
-      transition: 0.3s ease;
+      letter-spacing: 1px;
     }
 
     .behance-footer:hover {
       color: #22d3ee;
       text-shadow: 0 0 25px var(--glow);
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .square { height: 400px; }
+      .vertical { height: 600px; }
+    }
   </style>
 </head>
 
 <body>
-
-  <button class="theme-toggle" onclick="document.body.classList.toggle('light')">
-    Mode clair / sombre
-  </button>
 
   <header>
     <div class="logo-name">
@@ -238,49 +165,23 @@
 
   <h1 class="name-title">Raphaël ARNOLD</h1>
 
-  <section class="about">
-    <h2>À propos</h2>
-    <p>
-      Je suis Raphaël Arnold, graphiste passionné par la création visuelle, 
-      l’illustration et le design numérique. J’aime donner vie à des univers 
-      colorés, dynamiques et uniques à travers mes projets.
-    </p>
-
-    <div class="about-links flat-icons">
-
-      <a href="https://x.com/TheApothicary" target="_blank">
-        <svg viewBox="0 0 24 24" class="flat-icon">
-          <path fill="currentColor" d="M18.244 2H21.5l-7.42 8.49L22 22h-6.843l-5.01-6.545L4.5 22H1.245l7.92-9.06L2 2h6.843l4.713 6.175L18.244 2z"/>
-        </svg>
-      </a>
-
-      <a href="https://www.behance.net/raphaelarnold_" target="_blank">
-        <svg viewBox="0 0 24 24" class="flat-icon">
-          <path fill="currentColor" d="M4.5 7H9c1.657 0 3 1.343 3 3 0 .795-.31 1.515-.816 2.047A2.99 2.99 0 0 1 12 14c0 1.657-1.343 3-3 3H4.5V7zm3.9 4.2c.663 0 1.2-.537 1.2-1.2s-.537-1.2-1.2-1.2H6.3v2.4h2.1zm.3 4.2c.663 0 1.2-.537 1.2-1.2s-.537-1.2-1.2-1.2H6.3v2.4h2.4zM14.25 12c0-2.485 1.79-4.5 4.5-4.5 2.61 0 4.35 1.845 4.35 4.65v.45h-6.3c.15.9.9 1.65 2.1 1.65.75 0 1.47-.3 2.1-.9l1.35 1.5c-.9.9-2.25 1.5-3.6 1.5-2.76 0-4.5-2.04-4.5-4.35zm6.3-1.2c-.15-.9-.75-1.65-1.8-1.65s-1.65.75-1.8 1.65h3.6zM14.25 7.5h4.5v1.5h-4.5V7.5z"/>
-        </svg>
-      </a>
-
-    </div>
-  </section>
-
+  <!-- GRILLE EXACTE -->
   <div class="grid">
 
-    <!-- IMAGES -->
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet1.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet2.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet3.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet4.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet5.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet6.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet7.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet8.jpg" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet9.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet10.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet11.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet12.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet13.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet14.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
-    <div class="item"><div class="thumb-wrapper"><img src="images/projet15.png" onclick="selectImage(this); openLightbox(this.src)"></div></div>
+    <!-- LIGNE 1 : CARRÉS -->
+    <div class="square"><img src="images/projet1.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="square"><img src="images/projet2.png" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="square"><img src="images/projet3.png" onclick="selectImage(this); openLightbox(this.src)"></div>
+
+    <!-- LIGNE 2 : VERTICAUX -->
+    <div class="vertical"><img src="images/projet4.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="vertical"><img src="images/projet5.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="vertical"><img src="images/projet6.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+
+    <!-- LIGNE 3 : VERTICAUX -->
+    <div class="vertical"><img src="images/projet7.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="vertical"><img src="images/projet8.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+    <div class="vertical"><img src="images/projet9.png" onclick="selectImage(this); openLightbox(this.src)"></div>
 
   </div>
 
@@ -296,15 +197,13 @@
   </div>
 
   <script>
-    /* Glow permanent */
     function selectImage(img) {
-      document.querySelectorAll('.thumb-wrapper img').forEach(i =>
+      document.querySelectorAll('.square img, .vertical img').forEach(i =>
         i.classList.remove('selected-image')
       );
       img.classList.add('selected-image');
     }
 
-    /* Lightbox */
     function openLightbox(src) {
       document.getElementById("lightbox-img").src = src;
       document.getElementById("lightbox").style.display = "flex";
