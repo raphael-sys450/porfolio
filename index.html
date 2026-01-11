@@ -49,10 +49,11 @@
       transform: translateY(-2px);
     }
 
+    /* Effet scroll reveal générique */
     .scroll-reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: 0.8s ease;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .scroll-reveal.visible {
@@ -70,19 +71,14 @@
       justify-content: center;
       padding-bottom: 40px;
       position: relative;
-      box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6); /* OMBRE SOUS LE HEADER */
+      box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6);
     }
 
     /* LOGO GÉANT À CHEVAL SUR LE HEADER */
     .logo-name {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.7rem;
-      background: none;
-      padding: 0;
-      border-radius: 0;
-      backdrop-filter: none;
+      justify-content: center;
       transform: translateY(90px);
       z-index: 10;
     }
@@ -93,17 +89,16 @@
       border-radius: 50%;
       object-fit: cover;
       animation: glow 3s ease-in-out infinite;
-      filter: drop-shadow(0px 12px 25px rgba(0,0,0,0.55)); /* OMBRE 3D */
+      filter: drop-shadow(0px 12px 25px rgba(0,0,0,0.55));
     }
 
-    /* GLOW VIOLET */
     @keyframes glow {
       0% { box-shadow: 0 0 15px rgba(180, 0, 255, 0.25); }
       50% { box-shadow: 0 0 45px rgba(180, 0, 255, 0.8); }
       100% { box-shadow: 0 0 15px rgba(180, 0, 255, 0.25); }
     }
 
-    /* NOM EN DESSOUS DU HEADER */
+    /* NOM SOUS LE HEADER */
     .name-title {
       text-align: center;
       font-size: 2.8rem;
@@ -112,7 +107,7 @@
       font-weight: 700;
     }
 
-    /* ABOUT */
+    /* SECTION À PROPOS */
     .about {
       padding: 3rem 2rem;
       max-width: 900px;
@@ -134,7 +129,7 @@
       margin: 0 auto 2rem auto;
     }
 
-    /* ICONES */
+    /* ICONES SOCIALES */
     .flat-icons {
       display: flex;
       justify-content: center;
@@ -158,14 +153,14 @@
       color: #000;
     }
 
-    /* GRID */
+    /* GRID — IMAGES COLLÉES & IDENTIQUES */
     .grid {
       display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      padding: 2rem;
-      max-width: 1500px;
-      margin: auto;
+      gap: 0; /* aucune marge entre les cases */
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     .item {
@@ -176,25 +171,33 @@
       cursor: pointer;
     }
 
-    /* IMAGES PLUS GRANDES */
     .thumb-wrapper {
       width: 100%;
-      height: 520px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 600px; /* même hauteur pour toutes les images */
       overflow: hidden;
     }
 
     .thumb-wrapper img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* remplit, coupe proprement */
       transition: transform 0.4s ease;
     }
 
     .thumb-wrapper:hover img {
       transform: scale(1.05);
+    }
+
+    /* ANIMATION FADE-IN + ZOOM POUR LES IMAGES */
+    .image-appear {
+      opacity: 0;
+      transform: scale(1.05);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .image-appear.visible {
+      opacity: 1;
+      transform: scale(1);
     }
 
     /* LIGHTBOX */
@@ -235,19 +238,20 @@
       text-decoration: underline;
     }
 
+    /* MOBILE */
     @media (max-width: 600px) {
       header {
         height: 280px;
         padding-bottom: 20px;
       }
 
+      .logo-name {
+        transform: translateY(70px);
+      }
+
       .logo-name img {
         width: 150px;
         height: 150px;
-      }
-
-      .logo-name {
-        transform: translateY(70px);
       }
 
       .name-title {
@@ -256,7 +260,11 @@
       }
 
       .thumb-wrapper {
-        height: 340px;
+        height: 350px; /* même taille sur mobile */
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -303,22 +311,95 @@
 
   <div class="grid scroll-reveal">
 
-    <!-- IMAGES CLIQUABLES -->
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet1.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet2.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet3.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet4.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet5.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet6.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet7.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet8.jpg" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet9.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet10.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet11.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet12.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet13.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet14.png" onclick="openLightbox(this.src)"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet15.png" onclick="openLightbox(this.src)"></div></div>
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet1.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 1">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet2.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 2">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet3.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 3">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet4.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 4">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet5.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 5">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet6.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 6">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet7.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 7">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet8.jpg" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 8">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet9.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 9">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet10.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 10">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet11.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 11">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet12.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 12">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet13.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 13">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet14.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 14">
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="thumb-wrapper">
+        <img src="images/projet15.png" class="image-appear" onclick="openLightbox(this.src)" alt="Projet 15">
+      </div>
+    </div>
 
   </div>
 
@@ -328,7 +409,7 @@
 
   <!-- LIGHTBOX -->
   <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
+    <img id="lightbox-img" alt="Agrandissement du projet">
   </div>
 
   <script>
@@ -341,6 +422,7 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.image-appear').forEach(el => observer.observe(el));
 
     function openLightbox(src) {
       document.getElementById("lightbox-img").src = src;
