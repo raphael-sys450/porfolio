@@ -268,4 +268,31 @@
     <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet5.jpg"></div></div>
     <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet6.jpg"></div></div>
     <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet7.jpg"></div></div>
-    <div class="item scroll-reveal"><div class="thumb-wrapper">
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet8.jpg"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet9.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet10.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet11.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet12.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet13.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet14.png"></div></div>
+    <div class="item scroll-reveal"><div class="thumb-wrapper"><img src="images/projet15.png"></div></div>
+  </div>
+
+  <footer class="scroll-reveal">
+    © 2025 — Portfolio de <a href="https://x.com/TheApothicary" target="_blank">Raphaël Arnold</a> • Tous droits réservés
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
