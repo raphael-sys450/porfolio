@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raphaël Arnold – CV</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --text: #ffffff;
+      --glow: rgba(168, 85, 247, 0.95);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      width: 100%;
+      padding: 1.2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(15, 15, 16, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    }
+
+    .nav-link {
+      color: var(--text);
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--glow);
+      text-shadow: 0 0 12px var(--glow);
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      height: 260px;
+      background: url('images/banner.png') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 40px;
+      position: relative;
+      margin-top: 80px; /* important pour laisser la nav fixe */
+      box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6);
+    }
+
+    .logo-name img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      animation: glowLogo 3s ease-in-out infinite;
+      filter: drop-shadow(0 12px 25px rgba(0,0,0,0.55));
+    }
+
+    @keyframes glowLogo {
+      0% { box-shadow: 0 0 15px rgba(180, 0, 255, 0.25); }
+      50% { box-shadow: 0 0 45px rgba(180, 0, 255, 0.8); }
+      100% { box-shadow: 0 0 15px rgba(180, 0, 255, 0.25); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 2rem;
+      font-weight: 900;
+    }
+
+    .cv-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      line-height: 1.7;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+      color: var(--glow);
+      text-shadow: 0 0 12px rgba(168,85,247,0.4);
+    }
+
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background: transparent;
+      border: 2px solid var(--glow);
+      color: var(--glow);
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.25s ease;
+      display: block;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .download-btn:hover {
+      background: var(--glow);
+      color: #0f0f10;
+      box-shadow: 0 0 18px var(--glow);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      margin-top: 3rem;
+    }
+
+    .behance-footer {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: var(--glow);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+
+    .behance-footer:hover {
+      color: #ffffff;
+      text-shadow: 0 0 18px var(--glow);
+    }
+
+    footer p {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">Portfolio</a>
+    <a href="cv.html" class="nav-link">CV</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-name">
+      <img src="images/logo.png" alt="Logo">
+    </div>
+  </header>
+
+  <h1>Curriculum Vitae</h1>
+
+  <div class="cv-container">
+
+    <a href="cv/Raphael_Arnold_CV.pdf" download class="download-btn">
+      Télécharger mon CV (PDF)
+    </a>
+
+    <h2>Profil</h2>
+    <div class="section">
+      Graphiste & illustrateur passionné, spécialisé dans la création visuelle,
+      l’identité graphique, la direction artistique et les supports numériques.
+      Actuellement étudiant en BUT MMI.
+    </div>
+
+    <h2>Compétences</h2>
+    <div class="section">
+      • Illustration digitale<br>
+      • Identité visuelle<br>
+      • Affiches & communication<br>
+      • Motion design (bases)<br>
+      • UI/UX design<br>
+      • Web design<br>
+      • Photoshop, Illustrator, InDesign, After Effects<br>
+      • HTML / CSS / JS
+    </div>
+
+    <h2>Expériences</h2>
+    <div class="section">
+      <strong>Graphiste – Team Arkad (2025 – présent)</strong><br>
+      Direction artistique, visuels esport, communication réseaux.
+
+      <br><br>
+
+      <strong>Freelance – Nebulae Esport (2023)</strong><br>
+      Identité visuelle, direction artistique.
+
+      <br><br>
+
+      <strong>Assistant mesure – CADAGEO (2022)</strong><br>
+      Participation à un projet de rénovation.
+    </div>
+
+    <h2>Formation</h2>
+    <div class="section">
+      <strong>BUT MMI – IUT Cergy Sarcelles (2024 – 2027)</strong><br>
+      Métiers du Multimédia et de l’Internet.
+
+      <br><br>
+
+      <strong>Baccalauréat STI2D (SIN) – LTP Saint-Nicolas (2024)</strong>
+    </div>
+
+    <h2>Contact</h2>
+    <div class="section">
+      Email : raphael.arnold@example.com<br>
+      X : @TheApothicary<br>
+      Behance : behance.net/raphaelarnold_<br>
+      Localisation : Le Kremlin-Bicêtre, France
+    </div>
+
+  </div>
+
+  <footer>
+    <a href="https://www.behance.net/raphaelarnold_" target="_blank" class="behance-footer">
+      See more on my Behance
+    </a>
+    <p>@ 2026 - Raphaël Arnold</p>
+  </footer>
+
+</body>
+</html>
