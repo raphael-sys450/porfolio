@@ -169,22 +169,35 @@
       filter: drop-shadow(0 0 6px var(--glow)) !important;
     }
 
-    /* LIGHTBOX */
-    #lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.88);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
+    /* CARTES SAÉ */
+    .sae-card {
+      background: #131316;
+      border: 1px solid rgba(168,85,247,0.35);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 0 18px rgba(168,85,247,0.15);
+      transition: 0.25s ease;
     }
 
-    #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      box-shadow: 0 0 45px rgba(0,0,0,0.9);
+    .sae-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 28px rgba(168,85,247,0.45);
+      border-color: rgba(168,85,247,0.65);
+    }
+
+    .sae-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--glow);
+    }
+
+    .sae-card p {
+      margin: 0;
+      opacity: 0.9;
+      line-height: 1.6;
     }
 
     /* FOOTER */
@@ -297,41 +310,63 @@
     </div>
   </div>
 
-  <!-- SECTION RÉSUMÉ DES SAÉ -->
-  <section class="sae-section" style="max-width:900px;margin:3rem auto;padding:1rem 1.5rem;line-height:1.7;">
-    <h2 style="font-size:2rem;font-weight:900;margin-bottom:1.5rem;text-align:center;color:var(--glow);">
+  <!-- SECTION SAÉ (CARTES NÉON VIOLET) -->
+  <section class="sae-cards" style="max-width:900px;margin:3rem auto;padding:1rem 1.5rem;">
+
+    <h2 style="font-size:2rem;font-weight:900;margin-bottom:2rem;text-align:center;color:var(--glow);">
       Résumé des SAÉ
     </h2>
 
-    <h3>🟧 SAE 101 – Analyser un site web (Audit sémiotique)</h3>
-    <p>Analyse sémiotique du site Hermès. Développement de l’esprit critique et capacité à analyser un site en profondeur.</p>
+    <div class="sae-card">
+      <h3>🟧 SAE 101 – Analyser un site web</h3>
+      <p>Audit sémiotique du site Hermès. Développement de l’esprit critique et analyse approfondie d’un site web.</p>
+    </div>
 
-    <h3>🟦 SAE 102 – Recommandation de communication numérique</h3>
-    <p>Création d’une recommandation marketing et d’un plan de communication international. Audit complet de Marionnaud.</p>
+    <div class="sae-card">
+      <h3>🟦 SAE 102 – Recommandation de communication numérique</h3>
+      <p>Création d’une recommandation marketing internationale. Audit complet de Marionnaud et stratégie de communication.</p>
+    </div>
 
-    <h3>🟪 SAE 103 – Produire des éléments de communication visuelle</h3>
-    <p>Création de supports graphiques, tutoriel vidéo, livret de 45 pages, moodboards, affiches, travail sur InDesign.</p>
+    <div class="sae-card">
+      <h3>🟪 SAE 103 – Produire des éléments de communication visuelle</h3>
+      <p>Création de supports graphiques : tutoriel vidéo, livret 45 pages, moodboards, affiches, travail sur InDesign.</p>
+    </div>
 
-    <h3>🟩 SAE 104 – Produire un contenu audio et vidéo</h3>
-    <p>Réalisation d’une vidéo de 1min30, dossier complet (script, storyboard, synopsis, plan de tournage, note d’intention).</p>
+    <div class="sae-card">
+      <h3>🟩 SAE 104 – Produire un contenu audio et vidéo</h3>
+      <p>Vidéo de 1min30 + dossier complet : script, storyboard, synopsis, plan de tournage, note d’intention.</p>
+    </div>
 
-    <h3>🟫 SAE 105 – Produire un site web</h3>
-    <p>Développement d’un site web statique conforme aux normes W3C/WCAG. Intégration HTML/CSS et hébergement.</p>
+    <div class="sae-card">
+      <h3>🟫 SAE 105 – Produire un site web</h3>
+      <p>Développement d’un site statique conforme W3C/WCAG. Intégration HTML/CSS et hébergement.</p>
+    </div>
 
-    <h3>🟧 SAE 106 – Gérer un projet de communication numérique</h3>
-    <p>Gestion d’un projet international, audit complet d’Hermès (contexte, marketing, finances, légal), coordination d’équipe.</p>
+    <div class="sae-card">
+      <h3>🟧 SAE 106 – Gérer un projet de communication numérique</h3>
+      <p>Gestion d’un projet international, audit Hermès (contexte, marketing, finances, légal), coordination d’équipe.</p>
+    </div>
 
-    <h3>🟦 SAE 201 – Explorer les usages du numérique</h3>
-    <p>Étude des besoins utilisateurs, entretiens, personae, analyse statistique, cahier des charges pour un fablab.</p>
+    <div class="sae-card">
+      <h3>🟦 SAE 201 – Explorer les usages du numérique</h3>
+      <p>Entretiens utilisateurs, personae, analyse statistique, cahier des charges pour un fablab.</p>
+    </div>
 
-    <h3>🟪 SAE 202 – Concevoir un produit/service et sa communication</h3>
-    <p>Promotion du Festival des Talents : stratégie, plan de communication, supports visuels, vidéos, travail en groupe.</p>
+    <div class="sae-card">
+      <h3>🟪 SAE 202 – Concevoir un produit/service et sa communication</h3>
+      <p>Promotion du Festival des Talents : stratégie, plan de communication, supports visuels, vidéos, travail en groupe.</p>
+    </div>
 
-    <h3>🟩 SAE 203 – Concevoir un site web avec base de données</h3>
-    <p>Site dynamique en PHP/SQL, espace administrateur, gestion des données, animations CSS via Tailwind.</p>
+    <div class="sae-card">
+      <h3>🟩 SAE 203 – Concevoir un site web avec base de données</h3>
+      <p>Site dynamique en PHP/SQL, espace administrateur, gestion des données, animations CSS via Tailwind.</p>
+    </div>
 
-    <h3>🟫 SAE 204 – Construire sa présence en ligne</h3>
-    <p>Personal branding, analyse du marché, projet autour d’Ubisoft, création d’une affiche de collaboration.</p>
+    <div class="sae-card">
+      <h3>🟫 SAE 204 – Construire sa présence en ligne</h3>
+      <p>Personal branding, benchmark, projet autour d’Ubisoft, création d’une affiche de collaboration.</p>
+    </div>
+
   </section>
 
   <!-- FOOTER -->
