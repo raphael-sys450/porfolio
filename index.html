@@ -62,7 +62,7 @@
       justify-content: center;
       padding-bottom: 40px;
       position: relative;
-      margin-top: 80px; /* important pour laisser la nav fixe */
+      margin-top: 80px;
       box-shadow: 0 40px 60px -20px rgba(0,0,0,0.6);
     }
 
@@ -169,29 +169,6 @@
       filter: drop-shadow(0 0 6px var(--glow)) !important;
     }
 
-    .cell img.selected-image {
-      animation: lightboxZoom 0.35s ease forwards;
-    }
-
-    @keyframes lightboxZoom {
-      0% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 0 rgba(0,0,0,0));
-      }
-      60% {
-        transform: scale(1.05);
-        filter:
-          drop-shadow(0 0 12px var(--glow))
-          drop-shadow(0 0 18px var(--glow));
-      }
-      100% {
-        transform: scale(1.03);
-        filter:
-          drop-shadow(0 0 10px var(--glow))
-          drop-shadow(0 0 14px rgba(168,85,247,0.7));
-      }
-    }
-
     /* LIGHTBOX */
     #lightbox {
       position: fixed;
@@ -208,11 +185,6 @@
       max-height: 90%;
       border-radius: 10px;
       box-shadow: 0 0 45px rgba(0,0,0,0.9);
-    }
-
-    #lightbox img.zoom {
-      animation: lightboxZoom 0.35s ease forwards;
-      filter: drop-shadow(0 0 14px var(--glow));
     }
 
     /* FOOTER */
@@ -302,28 +274,65 @@
     <div class="grid">
 
       <!-- LIGNE 1 -->
-      <div class="cell square"><img src="images/projet1.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell square"><img src="images/projet2.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell square"><img src="images/projet3.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell square"><img src="images/projet4.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell square"><img src="images/projet5.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
+      <div class="cell square"><img src="images/projet1.jpg"></div>
+      <div class="cell square"><img src="images/projet2.png"></div>
+      <div class="cell square"><img src="images/projet3.png"></div>
+      <div class="cell square"><img src="images/projet4.jpg"></div>
+      <div class="cell square"><img src="images/projet5.jpg"></div>
 
       <!-- LIGNE 2 -->
-      <div class="cell vertical"><img src="images/projet6.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet7.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet8.jpg" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet9.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet10.png" onclick="selectImage(this); openLightbox(this.src)"></div>
+      <div class="cell vertical"><img src="images/projet6.jpg"></div>
+      <div class="cell vertical"><img src="images/projet7.jpg"></div>
+      <div class="cell vertical"><img src="images/projet8.jpg"></div>
+      <div class="cell vertical"><img src="images/projet9.png"></div>
+      <div class="cell vertical"><img src="images/projet10.png"></div>
 
       <!-- LIGNE 3 -->
-      <div class="cell vertical"><img src="images/projet11.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet12.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet13.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet14.png" onclick="selectImage(this); openLightbox(this.src)"></div>
-      <div class="cell vertical"><img src="images/projet15.png" onclick="selectImage(this); openLightbox(this.src)"></div>
+      <div class="cell vertical"><img src="images/projet11.png"></div>
+      <div class="cell vertical"><img src="images/projet12.png"></div>
+      <div class="cell vertical"><img src="images/projet13.png"></div>
+      <div class="cell vertical"><img src="images/projet14.png"></div>
+      <div class="cell vertical"><img src="images/projet15.png"></div>
 
     </div>
   </div>
+
+  <!-- SECTION RÉSUMÉ DES SAÉ -->
+  <section class="sae-section" style="max-width:900px;margin:3rem auto;padding:1rem 1.5rem;line-height:1.7;">
+    <h2 style="font-size:2rem;font-weight:900;margin-bottom:1.5rem;text-align:center;color:var(--glow);">
+      Résumé des SAÉ
+    </h2>
+
+    <h3>🟧 SAE 101 – Analyser un site web (Audit sémiotique)</h3>
+    <p>Analyse sémiotique du site Hermès. Développement de l’esprit critique et capacité à analyser un site en profondeur.</p>
+
+    <h3>🟦 SAE 102 – Recommandation de communication numérique</h3>
+    <p>Création d’une recommandation marketing et d’un plan de communication international. Audit complet de Marionnaud.</p>
+
+    <h3>🟪 SAE 103 – Produire des éléments de communication visuelle</h3>
+    <p>Création de supports graphiques, tutoriel vidéo, livret de 45 pages, moodboards, affiches, travail sur InDesign.</p>
+
+    <h3>🟩 SAE 104 – Produire un contenu audio et vidéo</h3>
+    <p>Réalisation d’une vidéo de 1min30, dossier complet (script, storyboard, synopsis, plan de tournage, note d’intention).</p>
+
+    <h3>🟫 SAE 105 – Produire un site web</h3>
+    <p>Développement d’un site web statique conforme aux normes W3C/WCAG. Intégration HTML/CSS et hébergement.</p>
+
+    <h3>🟧 SAE 106 – Gérer un projet de communication numérique</h3>
+    <p>Gestion d’un projet international, audit complet d’Hermès (contexte, marketing, finances, légal), coordination d’équipe.</p>
+
+    <h3>🟦 SAE 201 – Explorer les usages du numérique</h3>
+    <p>Étude des besoins utilisateurs, entretiens, personae, analyse statistique, cahier des charges pour un fablab.</p>
+
+    <h3>🟪 SAE 202 – Concevoir un produit/service et sa communication</h3>
+    <p>Promotion du Festival des Talents : stratégie, plan de communication, supports visuels, vidéos, travail en groupe.</p>
+
+    <h3>🟩 SAE 203 – Concevoir un site web avec base de données</h3>
+    <p>Site dynamique en PHP/SQL, espace administrateur, gestion des données, animations CSS via Tailwind.</p>
+
+    <h3>🟫 SAE 204 – Construire sa présence en ligne</h3>
+    <p>Personal branding, analyse du marché, projet autour d’Ubisoft, création d’une affiche de collaboration.</p>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -332,35 +341,6 @@
     </a>
     <p>@ 2026 - Raphaël Arnold</p>
   </footer>
-
-  <!-- LIGHTBOX -->
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
-  </div>
-
-  <script>
-    function selectImage(img) {
-      document.querySelectorAll('.cell img').forEach(i => {
-        i.classList.remove('selected-image');
-      });
-      void img.offsetWidth;
-      img.classList.add('selected-image');
-    }
-
-    function openLightbox(src) {
-      const lb = document.getElementById("lightbox");
-      const lbImg = document.getElementById("lightbox-img");
-      lbImg.classList.remove('zoom');
-      lbImg.src = src;
-      void lbImg.offsetWidth;
-      lbImg.classList.add('zoom');
-      lb.style.display = "flex";
-    }
-
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
 
 </body>
 </html>
